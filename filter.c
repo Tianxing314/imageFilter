@@ -159,8 +159,8 @@ int* create_partial_img(int* img, int n, int i, int j, int w, int h) {
 int* filter_pixel(int scale, int n, int w, int h, int* kernel, int* pixel_image) {
     int* res = malloc((w * h) * sizeof(int));
     int i, j;
-    for (i=0; i<w; i++) {
-        for (j=0; j<h; j++) {
+    for (i=0; i<h; i++) {
+        for (j=0; j<w; j++) {
             int* partial_img = create_partial_img(pixel_image, n, i, j, w, h);
             res[i*w+j] = convolute(scale, n, kernel, partial_img);
         }
